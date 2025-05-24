@@ -1,3 +1,8 @@
+#!/usr/bin/env node
+//A shebang is the special line at the very top of a script file that tells the operating system
+//  which interpreter to use to run the script.
+
+console.log('CLI started', process.argv);
 const {Command} =require('commander');
 const fs=require('fs');
 const path=require('path');
@@ -21,7 +26,7 @@ fs.writeFileSync(TASKS_FILE,JSON.stringify(tasks,null,2));
 }
 
 program.command('add <description>')
-       .description('Add a new task')
+       .description("Add a new task")
        .action((description)=>{
          const tasks=loadtasks();
          const newtask={
