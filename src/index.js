@@ -68,7 +68,7 @@ program.command('update <id> <description>')
              savetasks(tasks);
              console.log("Task upadted succesfully");
        });
-       
+
 //deleting task
 program.command('delete <id>')
 .description("You can delete a existing task")
@@ -91,4 +91,46 @@ savetasks(tasks);
 console.log("Tasks deleted succesfully");
 });
 
+//updating the status
+program.command("mark-in-progress <id>")
+.description("updates the status of the task")
+.action((id)=>{
+const tasks=loadtasks();
+if(!id||id.length===0)
+{
+  console.log("enter the id bro");
+  return;
+}
+const taskid=parseInt(id,10);
+const task=tasks.find((t)=>t.id===taskid);
+if(!task)
+{
+  console.log("id not found");
+  return;
+}
+task.status="in-progress";
+savetasks(tasks);
+console.log("status updated succesfully");
+});
+//updating the status
+program.command("mark-done <id>")
+.description("updates the status of the task")
+.action((id)=>{
+const tasks=loadtasks();
+if(!id||id.length===0)
+{
+  console.log("enter the id bro");
+  return;
+}
+const taskid=parseInt(id,10);
+const task=tasks.find((t)=>t.id===taskid);
+if(!task)
+{
+  console.log("id not found");
+  return;
+}
+task.status="task-done";
+savetasks(tasks);
+console.log("status updated succesfully");
+});
 program.parse(process.argv)
