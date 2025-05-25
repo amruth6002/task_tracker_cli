@@ -6,6 +6,7 @@ This project is built using JavaScript with no framework support. I have used th
 You can start by cloning this project to your local machine:
 ```sh
 git clone https://github.com/amruth6002/task_tracker_cli.git
+```
 
 After cloning, in the command line, navigate to the directory where you cloned the code and run:
 ```sh
