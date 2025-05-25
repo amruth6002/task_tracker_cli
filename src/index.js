@@ -133,4 +133,54 @@ task.status="task-done";
 savetasks(tasks);
 console.log("status updated succesfully");
 });
+
+//listing all the tasks
+program.command("list")
+.description("listing all the tasks")
+.action(() => {
+  const tasks = loadtasks();
+  for (const c of tasks)
+  {
+    console.log(`ID: ${c.id}\nDescription: ${c.description}\nStatus: ${c.status}\nCreated: ${c.createdAT}\nUpdated: ${c.updatedAt}\n`);
+  }
+});
+
+//listing based on a particular status
+program.command("listdone")
+.description("listing all completed tasks")
+.action(() => {
+  const tasks = loadtasks();
+  for (const c of tasks)
+  {
+    if(c.status==="task-done")
+    {
+   console.log(`ID: ${c.id}\nDescription: ${c.description}\nStatus: ${c.status}\nCreated: ${c.createdAT}\nUpdated: ${c.updatedAt}\n`);
+    }
+  }
+});
+program.command("listtodo")
+.description("listing all todo tasks")
+.action(() => {
+  const tasks = loadtasks();
+  for (const c of tasks)
+  {
+    if(c.status==="todo")
+    {
+   console.log(`ID: ${c.id}\nDescription: ${c.description}\nStatus: ${c.status}\nCreated: ${c.createdAT}\nUpdated: ${c.updatedAt}\n`);
+    }
+  }
+});
+program.command("listinprogress")
+.description("listing all in-progress tasks")
+.action(() => {
+  const tasks = loadtasks();
+  for (const c of tasks)
+  {
+    if(c.status==="in-progress")
+    {
+   console.log(`ID: ${c.id}\nDescription: ${c.description}\nStatus: ${c.status}\nCreated: ${c.createdAT}\nUpdated: ${c.updatedAt}\n`);
+    }
+  }
+});
+
 program.parse(process.argv)
