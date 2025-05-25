@@ -1,4 +1,4 @@
-Task tracker command line interface application
+# Task Tracker Command Line Interface Application :sparkles:
 
 This project is built using JavaScript with no framework support. I have used the commander module for this project.
 
