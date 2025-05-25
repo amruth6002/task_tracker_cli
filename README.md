@@ -1,12 +1,11 @@
 # Task Tracker Command Line Interface Application :sparkles:
-https://github.com/amruth6002/task_tracker_cli
+This is my solution for the challenge on [roadmap.sh](https://roadmap.sh/projects/task-tracker)
 
 This project is built using JavaScript with no framework support. I have used the commander module for this project.
 
 You can start by cloning this project to your local machine:
 ```sh
 git clone https://github.com/amruth6002/task_tracker_cli.git
-```
 
 After cloning, in the command line, navigate to the directory where you cloned the code and run:
 ```sh
