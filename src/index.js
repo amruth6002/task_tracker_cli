@@ -41,4 +41,31 @@ program.command('add <description>')
          console.log('Task added succesfully')
        });
 
+program.command('update <id> <description>')
+       .description("you can update existing task")
+       .action((id,description)=>{
+        const tasks=loadtasks();
+            if(!description||description.length===0)
+            {
+              console.log("You didn't tell what to add man");
+              return;
+            }
+            if(!id||id.length===0)
+            {
+              console.log("Enter the id,bro.");
+              return;
+            }
+            const taskId=parseInt(id,10);
+             const task=tasks.find(t=>t.id===taskId);
+             if(!task)
+             {
+               console.log("Task not found.");
+               return;
+             }
+             task.description=description;
+             task.updatedAt= new Date().toISOString();
+             savetasks(tasks);
+             console.log("Task upadted succesfully");
+       });
+
 program.parse(process.argv)
