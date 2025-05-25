@@ -25,6 +25,7 @@ function savetasks(tasks)
 fs.writeFileSync(TASKS_FILE,JSON.stringify(tasks,null,2));
 }
 
+//adding task
 program.command('add <description>')
        .description("Add a new task")
        .action((description)=>{
@@ -40,7 +41,7 @@ program.command('add <description>')
          savetasks(tasks);
          console.log('Task added succesfully')
        });
-
+//updating a existing task
 program.command('update <id> <description>')
        .description("you can update existing task")
        .action((id,description)=>{
@@ -56,7 +57,7 @@ program.command('update <id> <description>')
               return;
             }
             const taskId=parseInt(id,10);
-             const task=tasks.find(t=>t.id===taskId);
+             const task=tasks.find(t=>t.id===taskId);//return objecct
              if(!task)
              {
                console.log("Task not found.");
@@ -67,5 +68,27 @@ program.command('update <id> <description>')
              savetasks(tasks);
              console.log("Task upadted succesfully");
        });
+       
+//deleting task
+program.command('delete <id>')
+.description("You can delete a existing task")
+.action((id)=>{
+const tasks=loadtasks();
+if(!id||id.length===0)
+{
+  console.log("Enter the id man");
+  return;
+}
+const taskId=parseInt(id,10);
+const task=tasks.findIndex(t=>t.id===taskId);
+if(task===-1)
+{
+  console.log("Task not found");
+  return;
+}
+tasks.splice(task,1);
+savetasks(tasks);
+console.log("Tasks deleted succesfully");
+});
 
 program.parse(process.argv)
