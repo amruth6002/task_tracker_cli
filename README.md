@@ -1,4 +1,4 @@
-# Task Tracker Command Line Interface Application :sparkles:
+# Task Tracker Command Line Interface Application 
 This is my solution for the challenge on [roadmap.sh](https://roadmap.sh/projects/task-tracker)
 
 This project is built using JavaScript with no framework support. I have used the commander module for this project.
